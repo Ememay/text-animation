@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        
+        body {
+            min-height: 100vh;
+            background-color: darkslateblue;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .animation-text {
+            color: snow;
+            font-size: 30px;
+        }
+        
+        .animation-text span {
+            display: inline-block;
+            transform: translateY(50%);
+            opacity: 0;
+            transition: 0.5s all ease;
+        }
+        
+        .show-type-aniamtion {
+            opacity: 1 !important;
+            transform: translate(0%) !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 class="animation-text">Mohammad mahdi aghakhani</h1>
+    <h1 class="animation-text">reza esfandyari</h1>
+    <script src="script.js"></script>
+</body>
+
+</html>
