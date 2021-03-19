@@ -24,7 +24,6 @@
         
         .animation-text {
             color: snow;
-            font-size: 30px;
         }
         
         .animation-text span {
@@ -32,11 +31,18 @@
             transform: translateY(50%);
             opacity: 0;
             transition: 0.5s all ease;
+            font-size: 50px;
         }
         
         .show-type-aniamtion {
             opacity: 1 !important;
             transform: translate(0%) !important;
+        }
+        
+        @media screen and (max-width: 600px) {
+            .animation-text span {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
@@ -44,7 +50,6 @@
 <body>
 
     <h1 class="animation-text">Mohammad mahdi aghakhani</h1>
-    <h1 class="animation-text">reza esfandyari</h1>
     <script src="script.js"></script>
 </body>
 

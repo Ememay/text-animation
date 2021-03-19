@@ -6,39 +6,34 @@
     5 : add a class to each spans to show ,5-1: this is a bugfixer (when first for lop arrive to a empty piece,it doesnt add class to it,so we have to sum before add classess)
       */
 // 1
-const aniamtiontext = document.querySelectorAll('.animation-text')
-aniamtiontext.forEach(eachtext => {
-    // clear previes data
+const aniamtiontext = document.querySelector('.animation-text');
+// 2
+window.addEventListener('load', () => {
+    const strtext = aniamtiontext.textContent.split('');
+    aniamtiontext.textContent = '';
+    // 3
     // 5-1
     let bugfixer = 0;
+    for (let i = 0; i < strtext.length; i++) {
+        if (strtext[i] === ' ') {
+            aniamtiontext.innerHTML += `<span style="display: inline !important;"> </span>`;
+            bugfixer++;
+        }
+        aniamtiontext.innerHTML += `<span>${strtext[i]}</span>`;
+    }
+
+    // 4
+    let typeAnimationTime = setInterval(showtypeanimation, 50)
+        // 5
     let indexstr = 0;
-    const strtext = eachtext.textContent.split('');
-    eachtext.textContent = '';
-    // 2
-    window.addEventListener('load', () => {
-        // 3
-        // 5-1
 
-        for (let i = 0; i < strtext.length; i++) {
-            if (strtext[i] === ' ') {
-                eachtext.innerHTML += `<span style="display: inline !important;"> </span>`;
-                bugfixer++;
-            }
-            eachtext.innerHTML += `<span>${strtext[i]}</span>`;
+    function showtypeanimation() {
+        if (indexstr < strtext.length + bugfixer) {
+            const spans = document.querySelectorAll('.animation-text span')[indexstr];
+            spans.classList.add('show-type-aniamtion')
+            indexstr++;
+        } else {
+            clearInterval(typeAnimationTime);
         }
-
-        // 4
-        let typeAnimationTime = setInterval(showtypeanimation, 50)
-            // 5
-        function showtypeanimation() {
-            if (indexstr < strtext.length + bugfixer) {
-                const spans = document.querySelectorAll('.animation-text span')[indexstr];
-                spans.classList.add('show-type-aniamtion')
-                indexstr++;
-            } else {
-                clearInterval(typeAnimationTime);
-            }
-        }
-
-    })
+    }
 })
